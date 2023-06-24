@@ -21,7 +21,7 @@ func ThrottledRoute(r *fiber.Ctx) error {
 
 func main() {
 	app := fiber.New()
-	mw := mw.ThrottleTokenBucketMw(10, time.Second*30)
+	mw := mw.ThrottleTokenBucketMw(10, time.Second*1)
 	nt := app.Group("/not_throttled")
 	t := app.Group("/throttled", mw)
 
